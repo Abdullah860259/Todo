@@ -30,6 +30,8 @@ const App = () => {
       setloginstatus(true)
        return;
     }
+    console.log("checking");
+    console.log(`${baseURL}/islogged`)
       const data = await fetch(`${baseURL}/islogged`,{
         credentials:"include",
         method:"GET",
