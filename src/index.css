@@ -9,8 +9,8 @@
 }
 
 ::-webkit-scrollbar {
-  width: 5px;
-  margin-left: 5px;
+  inline-size: 5px;
+  margin-inline-start: 5px;
 }
 
 /* Track */
@@ -38,10 +38,10 @@
 
 @media ( max-width: 350px) {
   .taskContainer {
-    min-width: 50vw;
-    width: 90vw;
+    min-inline-size: 50vw;
+    inline-size: 90vw;
     padding: 15px;
-    height: auto;
+    block-size: auto;
   }
 
   .buttonsContainer>* {
@@ -56,8 +56,8 @@
 
   /* Scrollbar track */
   ::-webkit-scrollbar {
-    width: 5px;
-    height: 5px;
+    inline-size: 5px;
+    block-size: 5px;
     /* Width of the scrollbar */
   }
 
@@ -77,9 +77,9 @@
 
 @media(min-width:350px) and (max-width:700px) {
   .taskContainer {
-    height: 75dvh;
-    min-width: 50vw;
-    width: 90vw;
+    block-size: 75dvh;
+    min-inline-size: 50vw;
+    inline-size: 90vw;
     padding: 15px;
   }
 
@@ -94,8 +94,8 @@
   }
 
   ::-webkit-scrollbar {
-    width: 5px;
-    height: 5px;
+    inline-size: 5px;
+    block-size: 5px;
     /* Width of the scrollbar */
   }
 
