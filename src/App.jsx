@@ -32,6 +32,7 @@ const App = () => {
     }
     console.log("checking");
     console.log(`${baseURL}/islogged`)
+    console.log(localStorage.getItem("loginInfo"));
       const data = await fetch(`${baseURL}/islogged`,{
         credentials:"include",
         method:"GET",
@@ -39,7 +40,7 @@ const App = () => {
           "Content-Type":"application/json",
           authorization:`Bearer ${localStorage.getItem("loginInfo")}`
         }
-      });
+      }); 
     if (data.status === 200) {
       setloginstatus(true)
     }else{
