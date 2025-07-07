@@ -25,6 +25,7 @@ function Home() {
   }, [activeIndex])
   useEffect(() => {
     let res = async () => {
+      console.log(`${baseURL}/gettask`);
       let data = await fetch(`${baseURL}/gettask`, {
         method: "GET",
         credentials: "include",
