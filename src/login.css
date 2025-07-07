@@ -1,28 +1,28 @@
 html,body{
-    height: 100%;
+    block-size: 100%;
 }
 
 
 .svgs{
     position: absolute;
-    top: 13px;
-    right: 10px;
+    inset-block-start: 13px;
+    inset-inline-end: 10px;
 }
 
 .login{
     background-image: url(/background.jpg);
     background-size: cover;
     background-position: center;
-    height: 100vh;
-    width: 100vw;
+    block-size: 100vh;
+    inline-size: 100vw;
 }
 
 .forms{ 
     color: white;
-    min-width: 350px;
-    height: 450px;
-    width: 35vw;
-    max-width: 60vw;
+    min-inline-size: 350px;
+    block-size: 450px;
+    inline-size: 35vw;
+    max-inline-size: 60vw;
     border-radius: 30px;
     border: 2px solid rgba(255, 255, 255, 0.377);
     backdrop-filter: blur(10px);
@@ -36,10 +36,10 @@ input{
 
 @media(max-width: 600px) {
     .forms{
-        min-width: 0px !important;
-        width: 100% !important;
+        min-inline-size: 0px !important;
+        inline-size: 100% !important;
         padding: 40px 20px ;
-        max-width: 100vw !important;
+        max-inline-size: 100vw !important;
     }
 
     .forms > h1{
