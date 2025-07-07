@@ -10,7 +10,7 @@ html,body{
 }
 
 .login{
-    background-image: url(img.jpg);
+    background-image: url(./assets/background.jpg);
     background-size: cover;
     background-position: center;
     height: 100vh;
