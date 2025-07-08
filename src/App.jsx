@@ -32,13 +32,17 @@ const App = () => {
     }
     console.log("checking");
     console.log(`${baseURL}/islogged`)
-    console.log(localStorage.getItem("loginInfo"));
+    let token = localStorage.getItem("loginInfo");
+    if (token === null || token === undefined || token === "") {
+      setloginstatus(false);
+      return;
+    }
       const data = await fetch(`${baseURL}/islogged`,{
         credentials:"include",
         method:"GET",
         headers:{
           "Content-Type":"application/json",
-          authorization:`Bearer ${localStorage.getItem("loginInfo")}`
+          authorization:`Bearer ${token}`
         }
       }); 
     if (data.status === 200) {
