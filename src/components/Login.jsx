@@ -116,7 +116,7 @@ const Login = () => {
            hover:scale-105"
           >Login</button>
           <p>Don't have an account? <a href="/reg" className='font-bold inline-block transition-transform duration-100  hover:scale-105 '>Register</a></p>
-          <button className="googlelogin flex p-[3px] rounded-md cursor-pointer justify-between gap-3       items-center 
+          <button className="googlelogin flex p-[3px] rounded-md cursor-pointer justify-between gap-3 items-center 
              bg-blue-500 text-white font-semibold px-2 py-2 
              transition-all duration-150 ease-in-out 
              hover:bg-blue-600 hover:scale-105 hover:shadow-lg" onClick={() => login()}>
