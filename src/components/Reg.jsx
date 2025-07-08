@@ -86,7 +86,7 @@ const Reg = () => {
         <>
             <div className="login h-[100vh] border w-[100vw] flex justify-center items-center ">
                 <div className='forms flex  justify-center items-center flex-col p-10 gap-3 '>
-                    <h1 className=' text-5xl font-bold mb-8 ' >Register</h1>
+                    <h1 className=' text-3xl font-bold mb-2 ' >Register</h1>
                     <input
                     ref={(el)=>(inputs.current[0] = el)}
                     onKeyDown={(e)=>keyhandler(e,0)}
