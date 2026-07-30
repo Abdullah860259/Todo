@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import Error from '../components/Error'
 const baseURL = import.meta.env.VITE_API_URL;
 
-const CreateTask = () => {
-    const [errtitle,seterrtitle] = useState("");
+const CreateTask = ({ loginstatus }) => {
+    const [errtitle, seterrtitle] = useState("");
     const [showerror, setShowerror] = useState(false);
     const [form, setform] = useState({
         title: "",
@@ -45,7 +45,8 @@ const CreateTask = () => {
         }
         setform({ ...form, [e.target.name]: e.target.value });
     }
-
+    if(loginstatus == null) return 'Loading';
+    if(loginstatus == false) return 'Unauthorized';
     return (
         <>
             <div className="ceateTask bg-blue-300 w-full h-screen  flex justify-center items-center flex-col gap-4 ">

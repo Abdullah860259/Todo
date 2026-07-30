@@ -53,8 +53,8 @@ const App = () => {
           : (<Route path='/' element={<Login />} />)
         }
         <Route path="reg" element={<Reg />} />
-        <Route path="createtask" element={<CreateTask />} />
-        <Route path='profile' element={<Profile />} ></Route>
+        {loginstatus && (<Route path="createtask" element={<CreateTask loginstatus={loginstatus} />} />)}
+        {loginstatus && (<Route path='profile' element={<Profile loginstatus={loginstatus} />} ></Route>)}
       </Routes>
       <Footer />
     </>

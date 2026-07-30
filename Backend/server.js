@@ -44,6 +44,7 @@ mongoose.connect(mongourl)
 
 const islogged = async (req, res, next) => {
     const token = req.cookies.token || req.headers.authorization?.split(' ')[1];
+    console.log(token, 'token is 😂😂');
     if (!token || token === "null") {
         console.log("token is not available");
         return res.status(401).send('Unauthorized')
@@ -128,7 +129,7 @@ app.post("/addtask", islogged, async (req, res) => {
 })
 
 app.get("/gettask", islogged, async (req, res) => {
-    const tasks = await Task.find({ userid: req.Userid })
+    const tasks = await Task.find({ userid: req.user._id })
     res.send(tasks);
 })
 
@@ -182,7 +183,7 @@ app.get("/getUserName", islogged, async (req, res) => {
 app.post("/createtask", islogged, async (req, res) => {
     try {
         const newTask = await Task.create({
-            userid: req.Userid,
+            userid: req.user._id,
             title: req.body.title,
             completed: req.body.completed,
             Important: req.body.important
