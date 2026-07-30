@@ -9,7 +9,7 @@ import Profile from './components/Profile'
 const baseURL = import.meta.env.VITE_API_URL;
 const App = () => {
 
-  const [loginstatus, setloginstatus] = useState(false);
+  const [loginstatus, setloginstatus] = useState(null);
   function checkgooglelog() {
     let time = new Date().getTime();
     let localdata = JSON.parse(localStorage.getItem("loginInfo"));
@@ -33,10 +33,6 @@ const App = () => {
     console.log("checking");
     console.log(`${baseURL}/islogged`)
     let token = localStorage.getItem("loginInfo");
-    if (token === null || token === undefined || token === "") {
-      setloginstatus(false);
-      return;
-    }
     const data = await fetch(`${baseURL}/islogged`, {
       credentials: "include",
       method: "GET",
@@ -56,6 +52,9 @@ const App = () => {
     islogged();
   }, []);
 
+  if (loginstatus == null) {
+    return (`Loading`);
+  }
 
   return (
     <>

@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
 import "./error.css"
-const baseURL = import.meta.env.VITE_API_URL;
 const Error = (props) => {
     const errorbox = useRef();
     const [exiting, setExiting] = useState(false);
