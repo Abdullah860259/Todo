@@ -25,21 +25,10 @@ const App = () => {
   }
 
   async function islogged() {
-    let googlelog = checkgooglelog();
-    if (googlelog === true) {
-      setloginstatus(true)
-      return;
-    }
     console.log("checking");
     console.log(`${baseURL}/islogged`)
-    let token = localStorage.getItem("loginInfo");
     const data = await fetch(`${baseURL}/islogged`, {
       credentials: "include",
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        authorization: `Bearer ${token}`
-      }
     });
     if (data.status === 200) {
       setloginstatus(true)

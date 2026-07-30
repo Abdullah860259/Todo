@@ -43,14 +43,14 @@ mongoose.connect(mongourl)
 
 
 const islogged = async (req, res, next) => {
-    const token = req.cookies.token || req.headers.authorization.split(' ')[1];
+    const token = req.cookies.token || req.headers.authorization?.split(' ')[1];
     if (!token || token === "null") {
         console.log("token is not available");
         return res.status(401).send('Unauthorized')
     };
     const data = jwt.verify(token, jwtSecret);
     let user = await User.findOne({ _id: data.id });
-    res.user = user;
+    req.user = user;
     return next();
 }
 
@@ -175,8 +175,8 @@ app.post("/googleLogin", async (req, res) => {
 })
 
 app.get("/getUserName", islogged, async (req, res) => {
-    let user = await User.findOne({ _id: req.Userid })
-    res.json(user.name);
+    console.log(req.user,'loggin from get user name');
+    res.json(req.user.name);
 })
 
 app.post("/createtask", islogged, async (req, res) => {
