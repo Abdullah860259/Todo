@@ -43,7 +43,7 @@ mongoose.connect(mongourl)
 
 
 const islogged = async (req, res, next) => {
-    const token = req.cookies.token || req.headers.authorization?.split(' ')[1];
+    const token = req.cookies.token;
     console.log(token, 'token is 😂😂');
     if (!token || token === "null") {
         console.log("token is not available");
@@ -86,7 +86,12 @@ app.post("/register", async (req, res) => {
             dob,
         })
         const token = jwt.sign({ id: newUser.id }, jwtSecret);
-        res.cookie("token", token)
+        res.cookie("token", token, {
+            httpOnly: true,
+            secure: true,
+            sameSite: "none",
+            maxAge: 1000 * 60 * 60
+        })
         res.status(201).json("done")
     } catch (error) {
         console.error(error);
@@ -106,11 +111,14 @@ app.post("/login", async (req, res) => {
     // }
     const match = await bcrypt.compare(password, curUser.password);
     if (match) {
-        console.log(curUser);
         const token = jwt.sign({ id: curUser._id }, jwtSecret);
-        console.log(token,'this token is to set');
-        res.cookie("token", token)
-        res.headers = { 'Authorization': `Bearer ${token}` };
+        console.log(token, 'this token is to set');
+        res.cookie("token", token, {
+            httpOnly: true,
+            secure: true,
+            sameSite: "none",
+            maxAge: 1000 * 60 * 60
+        })
         console.log("token setted successfully");
         res.status(200).send("Login successful");
     } else {
@@ -178,7 +186,7 @@ app.post("/googleLogin", async (req, res) => {
 })
 
 app.get("/getUserName", islogged, async (req, res) => {
-    console.log(req.user,'loggin from get user name');
+    console.log(req.user, 'loggin from get user name');
     res.json(req.user.name);
 })
 
