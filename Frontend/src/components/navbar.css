@@ -1,0 +1,12 @@
+@media (max-width: 800px) {
+    .nav{
+        padding: 10px ;
+        justify-content: space-between;
+    }
+
+    .nav > p, .nav li{
+        font-size: 18px;
+    }
+
+    
+}

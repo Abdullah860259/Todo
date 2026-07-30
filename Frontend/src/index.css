@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+.linethrough {
+  text-decoration: line-through;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  inline-size: 5px;
+  margin-inline-start: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #cfcdcd;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: #313131;
+}
+
+.active {
+  transition: background 0.2s ease-in-out;
+  background: #f7f0ff;
+  border: 2px solid transparent;
+  border-color: blue;
+}
+
+.high {
+  background-color: rgb(255, 187, 255);
+}
+
+@media ( max-width: 350px) {
+  .taskContainer {
+    min-inline-size: 50vw;
+    inline-size: 90vw;
+    padding: 15px;
+    block-size: auto;
+  }
+
+  .buttonsContainer>* {
+    font-size: 9px;
+  }
+
+  .buttonsContainer {
+    padding: 2px;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  /* Scrollbar track */
+  ::-webkit-scrollbar {
+    inline-size: 5px;
+    block-size: 5px;
+    /* Width of the scrollbar */
+  }
+
+  /* Scrollbar thumb (the draggable part) */
+  ::-webkit-scrollbar-thumb {
+    background-color: #888;
+    /* Color */
+    border-radius: 4px;
+  }
+
+  /* Scrollbar track background */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+}
+
+@media(min-width:350px) and (max-width:700px) {
+  .taskContainer {
+    block-size: 75dvh;
+    min-inline-size: 50vw;
+    inline-size: 90vw;
+    padding: 15px;
+  }
+
+  .buttonsContainer>* {
+    font-size: 12px;
+  }
+
+  .buttonsContainer {
+    padding: 2px;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  ::-webkit-scrollbar {
+    inline-size: 5px;
+    block-size: 5px;
+    /* Width of the scrollbar */
+  }
+
+  /* Scrollbar thumb (the draggable part) */
+  ::-webkit-scrollbar-thumb {
+    background-color: #888;
+    /* Color */
+    border-radius: 4px;
+  }
+
+  /* Scrollbar track background */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+}
+
+@media (max-width:500px) {
+    .footer{
+      font-size: 10px;
+    }
+}
