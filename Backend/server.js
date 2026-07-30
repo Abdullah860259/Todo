@@ -106,7 +106,9 @@ app.post("/login", async (req, res) => {
     // }
     const match = await bcrypt.compare(password, curUser.password);
     if (match) {
-        const token = jwt.sign({ id: curUser.id }, jwtSecret);
+        console.log(curUser);
+        const token = jwt.sign({ id: curUser._id }, jwtSecret);
+        console.log(token,'this token is to set');
         res.cookie("token", token)
         res.headers = { 'Authorization': `Bearer ${token}` };
         console.log("token setted successfully");
